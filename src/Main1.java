@@ -60,11 +60,16 @@ public class Main1 {
 
         System.out.printf("Перші %d чисел Фібоначчі, що закінчуються на %d:%n", N, digit);
         boolean found = false;
-        for (int i = 1; i <= N; i++) {
-            numbers[i - 1] = new SequenceNumber(i);
-            long value = numbers[i - 1].getValue();
+
+        for (int i = 0; i < N; i++) {
+            numbers[i] = new SequenceNumber(i + 1); // створюємо об'єкт
+        }
+
+
+        for (SequenceNumber number : numbers) {
+            long value = number.getValue();
             if (value % 10 == digit) {
-                System.out.printf("F(%d) = %d%n", i, value);
+                System.out.printf("F(%d) = %d%n", number.getIndex(), value);
                 found = true;
             }
         }
